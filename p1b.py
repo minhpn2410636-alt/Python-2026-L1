@@ -21,28 +21,39 @@ for i in range(m):
 
     course = [course_id, course_name]
     courses.append(course)
-print(" STUDENTS")
+print("\nSTUDENTS")
 
 for student in students:
     print(student[0], student[1],  student[2])
 
-print(" COURSES ")
+print("\nCOURSES ")
 
 for course in courses:
     print(course[0], course[1])
 
-course_id = input("Enter course ID to input marks: ")
+for course in courses:
+    course_id = course[0]
+    course_name = course[1]
 
-marks[course_id] = {}
+    print("\nEnter marks for", course_name)
 
-for student in students:
-    mark = float(input("Enter mark for " + student[1] + ": "))
-    marks[course_id][student[0]] = mark
+    marks[course_id] = {}
 
-print(" STUDENT MARKS ")
+    for student in students:
+        student_id = student[0]
+        student_name = student[1]
 
-for student in students:
-    student_id = student[0]
-    name = student[1]
+        mark = float(input("Enter mark for " + student_name + ": "))
 
-    print(name, ":", marks[course_id][student_id])
+        marks[course_id][student_id] = mark
+
+print(" \nSTUDENT MARKS ")
+for course in courses:
+    course_id = course[0]
+    course_name = course[1]
+    print("Courses:",course_name)
+    
+    for student in students:
+        student_id= student[0]
+        student_name=student[1]
+        print(name, ":", marks[course_id][student_id])
